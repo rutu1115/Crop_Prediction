@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Prediction System</title>
+    
+    <!-- Google Fonts -->
+    <link href='https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap' rel='stylesheet'>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Background particles -->
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-leaf"></i>
+                <span>CropPredict</span>
+            </div>
+            <nav class="nav">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#predict" class="nav-link">Predict</a>
+                <a href="#about" class="nav-link">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Smart Crop Prediction
+                    <span class="gradient-text">for Better Farming</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Leverage AI-powered analytics to predict the best crops for your soil conditions
+                </p>
+                <a href="#predict" class="cta-button">
+                    <i class="fas fa-seedling"></i>
+                    Start Prediction
+                </a>
+            </div>
+            <div class="hero-visual">
+                <div class="floating-card">
+                    <i class="fas fa-chart-line"></i>
+                    <span>AI Analytics</span>
+                </div>
+                <div class="floating-card delay-1">
+                    <i class="fas fa-cloud-rain"></i>
+                    <span>Weather Data</span>
+                </div>
+                <div class="floating-card delay-2">
+                    <i class="fas fa-microscope"></i>
+                    <span>Soil Analysis</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prediction Form Section -->
+    <section class="prediction-section" id="predict">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Crop Prediction Model</h2>
+                <p class="section-subtitle">Enter your soil and environmental parameters</p>
+            </div>
+
+            <div class="prediction-container">
+                <form action="{{url_for('predict')}}" method="POST" class="prediction-form">
+                    <div class="form-grid">
+                        <div class="input-group">
+                            <label for="nitrogen" class="input-label">
+                                <i class="fas fa-flask"></i>
+                                Nitrogen (N)
+                            </label>
+                            <input type="number" 
+                                   id="nitrogen"
+                                   name="Nitrogen" 
+                                   placeholder="Enter nitrogen content (mg/kg)"
+                                   min="0" 
+                                   max="200"
+                                   step="0.1"
+                                   required
+                                   class="form-input"/>
+                            <span class="input-hint">Typical range: 0-200 mg/kg</span>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="phosphorous" class="input-label">
+                                <i class="fas fa-atom"></i>
+                                Phosphorous (P)
+                            </label>
+                            <input type="number" 
+                                   id="phosphorous"
+                                   name="Phosphorous" 
+                                   placeholder="Enter phosphorous content (mg/kg)"
+                                   min="0" 
+                                   max="150"
+                                   step="0.1"
+                                   required
+                                   class="form-input"/>
+                            <span class="input-hint">Typical range: 0-150 mg/kg</span>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="potassium" class="input-label">
+                                <i class="fas fa-prescription-bottle"></i>
+                                Potassium (K)
+                            </label>
+                            <input type="number" 
+                                   id="potassium"
+                                   name="Potassium" 
+                                   placeholder="Enter potassium content (mg/kg)"
+                                   min="0" 
+                                   max="300"
+                                   step="0.1"
+                                   required
+                                   class="form-input"/>
+                            <span class="input-hint">Typical range: 0-300 mg/kg</span>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="temperature" class="input-label">
+                                <i class="fas fa-thermometer-half"></i>
+                                Temperature (°C)
+                            </label>
+                            <input type="number" 
+                                   id="temperature"
+                                   name="Temperature" 
+                                   placeholder="Enter temperature"
+                                   min="0" 
+                                   max="50"
+                                   step="0.1"
+                                   required
+                                   class="form-input"/>
+                            <span class="input-hint">Typical range: 0-50°C</span>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="humidity" class="input-label">
+                                <i class="fas fa-tint"></i>
+                                Humidity (%)
+                            </label>
+                            <input type="number" 
+                                   id="humidity"
+                                   name="Humidity" 
+                                   placeholder="Enter humidity percentage"
+                                   min="0" 
+                                   max="100"
+                                   step="0.1"
+                                   required
+                                   class="form-input"/>
+                            <span class="input-hint">Typical range: 0-100%</span>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="ph" class="input-label">
+                                <i class="fas fa-vial"></i>
+                                pH Level
+                            </label>
+                            <input type="number" 
+                                   id="ph"
+                                   name="pH" 
+                                   placeholder="Enter pH level"
+                                   min="0" 
+                                   max="14"
+                                   step="0.1"
+                                   required
+                                   class="form-input"/>
+                            <span class="input-hint">Typical range: 0-14</span>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="rainfall" class="input-label">
+                                <i class="fas fa-cloud-rain"></i>
+                                Rainfall (mm)
+                            </label>
+                            <input type="number" 
+                                   id="rainfall"
+                                   name="Rainfall" 
+                                   placeholder="Enter rainfall amount"
+                                   min="0" 
+                                   max="500"
+                                   step="0.1"
+                                   required
+                                   class="form-input"/>
+                            <span class="input-hint">Typical range: 0-500mm</span>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="reset" class="btn btn-secondary">
+                            <i class="fas fa-redo"></i>
+                            Reset Form
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-magic"></i>
+                            Predict Crop
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Prediction Result -->
+                <div class="prediction-result" id="result-container" {% if not prediction_text %}style="display: none;"{% endif %}>
+                    <div class="result-card">
+                        <h3 class="result-title">
+                            <i class="fas fa-seedling"></i>
+                            Prediction Result
+                        </h3>
+                        <p class="result-text" id="prediction-text">{{ prediction_text }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Cards Section -->
+    <section class="info-section">
+        <div class="container">
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>AI-Powered</h3>
+                    <p>Advanced machine learning algorithms analyze your soil parameters</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Data-Driven</h3>
+                    <p>Predictions based on comprehensive agricultural datasets</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Sustainable</h3>
+                    <p>Optimize crop selection for better yields and soil health</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 CropPredict. Empowering farmers with AI technology.</p>
+        </div>
+    </footer>
+
+    <button class="toggle-btn" onclick="toggleTheme()">
+    <i class="fas fa-moon"></i>
+    </button>
+
+
+    <!-- JavaScript for smooth scrolling and form interactions -->
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form validation and feedback
+        const form = document.querySelector('.prediction-form');
+        const resultContainer = document.getElementById('result-container');
+
+        // Input validation feedback
+        const inputs = document.querySelectorAll('.form-input');
+        inputs.forEach(input => {
+            input.addEventListener('input', function() {
+                if (this.validity.valid) {
+                    this.classList.remove('invalid');
+                    this.classList.add('valid');
+                } else {
+                    this.classList.remove('valid');
+                    this.classList.add('invalid');
+                }
+            });
+        });
+
+    function toggleTheme() {
+        document.body.classList.toggle("light-mode");
+    }
+    </script>
+</body>
+</html>
