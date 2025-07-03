@@ -2,8 +2,6 @@
 
 An intelligent Machine Learning-based system that predicts the most suitable crop to cultivate based on environmental and soil parameters. This tool is especially useful for farmers, agronomists, and agriculture researchers to make informed crop selection decisions.
 
-![Crop Prediction Banner](static/images/banner.png) <!-- Replace with actual path to your image -->
-
 ---
 
 ## 📌 Features
@@ -32,23 +30,8 @@ An intelligent Machine Learning-based system that predicts the most suitable cro
 
 ---
 
-## 📸 Screenshots
-
-### 🔮 Prediction Form
-![Form UI](static/images/predict-form.png)
-
-### 📊 Prediction Output
-![Prediction Result](static/images/output-result.png)
-
-### 🗂️ Logs Dashboard (Optional)
-![Dashboard](static/images/dashboard.png)
-
----
-
 ## 🚀 Installation
 
 ### 1. Clone the Repository
 
-```bash
-git clone https://github.com/yourusername/crop-prediction-system.git
-cd crop-prediction-system
+```
