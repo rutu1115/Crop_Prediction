@@ -12,8 +12,6 @@ An intelligent Machine Learning-based system that predicts the most suitable cro
   - Soil pH and Rainfall
 - 🧠 Trained using Random Forest and other classifiers
 - 🌐 Simple and responsive web interface
-- 💾 Stores prediction history in a database
-- 📈 Dashboard to review prediction logs *(optional)*
 
 ---
 
@@ -23,15 +21,8 @@ An intelligent Machine Learning-based system that predicts the most suitable cro
 |---------------|----------------------|
 | ML Model      | Python, Scikit-learn |
 | Backend       | Flask                |
-| Frontend      | HTML, CSS, JS (or React) |
-| Database      | PostgreSQL / SQLite  |
-| Deployment    | Render / Heroku / AWS |
+| Frontend      | HTML, CSS, JS |
 | Dataset       | [Kaggle Dataset](https://www.kaggle.com/datasets/atharvaingle/crop-recommendation-dataset) |
 
 ---
 
-## 🚀 Installation
-
-### 1. Clone the Repository
-
-```
